@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "name": "Chitresh Gyanani",
-    "bio": "Software Engineer and GenAI specialist with strong experience designing and delivering production-grade AI platforms, backend systems, and full-stack SaaS products. I specialize in LLM engineering, Retrieval-Augmented Generation (RAG), knowledge-graph-powered chatbots, realtime AI systems, and scalable backend architectures using Python, FastAPI, and Django. My work spans enterprise AI governance platforms, developer tooling, analytics systems, and ML-driven automation, with a strong focus on clean architecture, data science rigor, reliability, and measurable business impact.",
+    "bio": "Software Engineer and GenAI specialist designing production-grade AI platforms, backend systems, and full-stack SaaS products. I specialize in LLM engineering, RAG, knowledge-graph-powered chatbots, and scalable architectures using Python, FastAPI, and Django.",
     "image": "https://avatars.githubusercontent.com/u/129378666?s=400&u=77199613fcc6a6df28cbe0a215e6f6556ed1c1a7&v=4",
     "location": "New Delhi, India",
     "tagline": "Designing and shipping production-grade AI and data systems at scale"
