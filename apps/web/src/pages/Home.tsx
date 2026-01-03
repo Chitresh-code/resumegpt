@@ -118,9 +118,9 @@ export default function Home() {
                   {personalInfo.tagline}
                 </p>
               )}
-              <p className="text-center max-w-2xl text-gray-800">
+              {/* <p className="text-center max-w-2xl text-gray-800">
                 {personalInfo.bio}
-              </p>
+              </p> */}
               {personalInfo.location && (
                 <p className="text-sm text-gray-600 mt-2">
                   {personalInfo.location}
