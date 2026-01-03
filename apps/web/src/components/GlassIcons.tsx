@@ -4,6 +4,8 @@ interface GlassIconItem {
   icon: React.ReactNode;
   label: string;
   query?: string;
+  cardType?: 'me' | 'projects' | 'skills' | 'contact' | 'resume' | 'fun';
+  color?: string;
   customClass?: string;
 }
 
@@ -12,18 +14,35 @@ interface GlassIconsProps {
   className?: string;
 }
 
+const colorGradients: Record<string, string> = {
+  me: 'linear-gradient(135deg, hsl(280, 70%, 50%), hsl(260, 70%, 45%))',
+  projects: 'linear-gradient(135deg, hsl(220, 70%, 50%), hsl(200, 70%, 45%))',
+  skills: 'linear-gradient(135deg, hsl(160, 70%, 50%), hsl(140, 70%, 45%))',
+  fun: 'linear-gradient(135deg, hsl(340, 70%, 50%), hsl(320, 70%, 45%))',
+  contact: 'linear-gradient(135deg, hsl(40, 70%, 50%), hsl(20, 70%, 45%))',
+  resume: 'linear-gradient(135deg, hsl(10, 70%, 50%), hsl(350, 70%, 45%))',
+  default: 'linear-gradient(135deg, hsl(0, 0%, 60%), hsl(0, 0%, 50%))',
+};
+
 const GlassIcons = ({ items, className }: GlassIconsProps) => {
   const navigate = useNavigate();
 
-  const getBackgroundStyle = () => {
-    return { background: 'linear-gradient(hsl(0, 0%, 60%), hsl(0, 0%, 50%))' };
+  const getBackgroundStyle = (item: GlassIconItem) => {
+    if (item.color) {
+      return { background: item.color };
+    }
+    if (item.cardType && colorGradients[item.cardType]) {
+      return { background: colorGradients[item.cardType] };
+    }
+    return { background: colorGradients.default };
   };
 
   const handleClick = (item: GlassIconItem) => {
-    if (item.query) {
-      navigate(`/chat?query=${encodeURIComponent(item.query)}`);
+    if (item.cardType) {
+      navigate('/chat', { state: { cardType: item.cardType } });
     } else {
-      navigate(`/chat?query=${encodeURIComponent(`Tell me about ${item.label.toLowerCase()}`)}`);
+      const query = item.query || `Tell me about ${item.label.toLowerCase()}`;
+      navigate('/chat', { state: { initialQuery: query } });
     }
   };
 
@@ -42,8 +61,8 @@ const GlassIcons = ({ items, className }: GlassIconsProps) => {
           <span
             className="absolute top-0 left-0 w-full h-full rounded-[1.25em] block transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] origin-[100%_100%] rotate-[15deg] [will-change:transform] group-hover:[transform:rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)]"
             style={{
-              ...getBackgroundStyle(),
-              boxShadow: '0.5em -0.5em 0.75em hsla(223, 10%, 10%, 0.15)'
+              ...getBackgroundStyle(item),
+              boxShadow: '0.5em -0.5em 0.75em hsla(223, 10%, 10%, 0.2)'
             }}
           ></span>
 
@@ -58,7 +77,7 @@ const GlassIcons = ({ items, className }: GlassIconsProps) => {
             </span>
           </span>
 
-          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-0 group-hover:opacity-100 group-hover:[transform:translateY(20%)] text-gray-900">
+          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-100 transition-all duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-2 group-hover:scale-110 group-hover:font-semibold text-gray-900">
             {item.label}
           </span>
         </button>

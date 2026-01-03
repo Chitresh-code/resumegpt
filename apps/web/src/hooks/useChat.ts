@@ -13,6 +13,20 @@ export function useChat() {
   // Keep messagesRef in sync with messages state
   messagesRef.current = messages;
 
+  const addCardMessage = useCallback((structuredData: StructuredOutput, message: string, projects?: any[]) => {
+    const assistantMessage: ChatMessage = {
+      role: 'assistant',
+      content: message,
+      structuredData,
+      id: Date.now().toString(),
+    };
+    // Store projects in a custom property if provided (for ProjectsCarousel)
+    if (projects && projects.length > 0) {
+      (assistantMessage as any).projects = projects;
+    }
+    setMessages((prev) => [...prev, assistantMessage]);
+  }, []);
+
   const sendMessage = useCallback(async (message: string) => {
     if (!message.trim()) return;
 
@@ -144,6 +158,7 @@ export function useChat() {
     sendMessage,
     clearMessages,
     stop,
+    addCardMessage,
   };
 }
 

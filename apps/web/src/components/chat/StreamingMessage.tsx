@@ -8,7 +8,7 @@ export default function StreamingMessage({ content }: StreamingMessageProps) {
   return (
     <Message from="assistant">
       <MessageContent>
-        <MessageResponse>{content}</MessageResponse>
+        <MessageResponse className="text-gray-800 leading-relaxed">{content}</MessageResponse>
       </MessageContent>
     </Message>
   );

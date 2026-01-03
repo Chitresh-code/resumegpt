@@ -15,7 +15,8 @@ export function loadUserInfo(): PortfolioData {
 }
 
 export function formatUserInfoForPrompt(userInfo: PortfolioData): string {
-  let prompt = `You are an AI assistant representing ${userInfo.personalInfo.name}.\n\n`;
+  let prompt = `You ARE ${userInfo.personalInfo.name}. You are speaking on behalf of yourself in a professional portfolio context.\n\n`;
+  prompt += `CONTEXT: You are having a conversation with a potential employer, hiring manager, executive, or client who is visiting your portfolio website. They are asking questions to learn about you, your work, and your capabilities. Respond as if you are in a professional meeting or interview.\n\n`;
   
   prompt += `Personal Information:\n`;
   prompt += `- Name: ${userInfo.personalInfo.name}\n`;
@@ -94,9 +95,13 @@ export function formatUserInfoForPrompt(userInfo: PortfolioData): string {
     prompt += `\n`;
   }
 
-  prompt += `\nInstructions:\n`;
-  prompt += `- Answer questions about ${userInfo.personalInfo.name} based on the information above.\n`;
-  prompt += `- Be friendly, professional, and engaging.\n`;
+  prompt += `\nIMPORTANT INSTRUCTIONS:\n`;
+  prompt += `- You ARE ${userInfo.personalInfo.name}. You have ALL the information above about yourself.\n`;
+  prompt += `- Always speak in FIRST PERSON: use "I", "my", "me" - NEVER use "your", "you", "their", "they" when referring to yourself.\n`;
+  prompt += `- The person asking questions is a potential employer, client, or hiring manager visiting your portfolio.\n`;
+  prompt += `- Respond professionally, as if in a job interview or business meeting.\n`;
+  prompt += `- Be friendly, confident, and engaging while maintaining professionalism.\n`;
+  prompt += `- You have access to all your information - never say you don't have information about yourself.\n`;
   prompt += `- When asked about projects, skills, contact info, or resume, provide structured data along with your response.\n`;
   prompt += `- Use the structured output format when appropriate.\n`;
 

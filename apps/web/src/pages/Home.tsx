@@ -11,7 +11,7 @@ export default function Home() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      navigate(`/chat?query=${encodeURIComponent(query)}`);
+      navigate('/chat', { state: { initialQuery: query } });
     }
   };
 
@@ -19,32 +19,32 @@ export default function Home() {
     { 
       label: 'Me', 
       icon: <UserCircle className="w-full h-full" />, 
-      query: 'Who are you? I want to know more about you.' 
+      cardType: 'me' as const
     },
     { 
       label: 'Projects', 
       icon: <Briefcase className="w-full h-full" />, 
-      query: 'Tell me about your projects' 
+      cardType: 'projects' as const
     },
     { 
       label: 'Skills', 
       icon: <BookOpen className="w-full h-full" />, 
-      query: 'What are your skills? Give me a list of your soft and hard skills.' 
+      cardType: 'skills' as const
     },
     { 
       label: 'Fun', 
       icon: <Sparkles className="w-full h-full" />, 
-      query: 'Tell me something fun about yourself' 
+      cardType: 'fun' as const
     },
     { 
       label: 'Contact', 
       icon: <Contact className="w-full h-full" />, 
-      query: 'How can I contact you?' 
+      cardType: 'contact' as const
     },
     { 
       label: 'Resume', 
       icon: <FileText className="w-full h-full" />, 
-      query: 'Show me your resume' 
+      cardType: 'resume' as const
     },
   ];
 

@@ -10,21 +10,26 @@ export default function ChatMessage({ message }: ChatMessageProps) {
   return (
     <div className="mb-6">
       {message.role === 'user' ? (
-        <div className="flex justify-end">
-          <div className="max-w-[80%] rounded-lg bg-gray-200 px-4 py-3">
-            <p className="text-sm text-gray-900">{message.content}</p>
+        <div className="flex justify-end mb-2">
+          <div className="max-w-[75%] rounded-2xl rounded-br-md bg-gradient-to-br from-purple-500 to-purple-600 px-5 py-3 shadow-lg">
+            <p className="text-sm text-white font-medium">{message.content}</p>
           </div>
         </div>
       ) : (
         <div className="space-y-4">
           {message.structuredData && (
-            <div className="max-w-4xl">
-              <CardRenderer data={message.structuredData} />
+            <div className="max-w-full">
+              <CardRenderer 
+                data={message.structuredData} 
+                projects={(message as any).projects}
+              />
             </div>
           )}
           {message.content && (
-            <div className="max-w-4xl">
-              <StreamingMessage content={message.content} />
+            <div className="max-w-full">
+              <div className="rounded-2xl rounded-tl-md bg-white border border-gray-200 shadow-sm px-5 py-4">
+                <StreamingMessage content={message.content} />
+              </div>
             </div>
           )}
         </div>

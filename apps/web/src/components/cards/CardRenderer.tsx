@@ -1,5 +1,5 @@
 import type { StructuredOutput } from '@/types/structured-outputs';
-import ProjectCard from './ProjectCard';
+import ProjectsCarousel from './ProjectsCarousel';
 import SkillCard from './SkillCard';
 import ContactCard from './ContactCard';
 import ResumeCard from './ResumeCard';
@@ -7,12 +7,14 @@ import InfoCard from './InfoCard';
 
 interface CardRendererProps {
   data: StructuredOutput;
+  projects?: any[];
 }
 
-export default function CardRenderer({ data }: CardRendererProps) {
+export default function CardRenderer({ data, projects }: CardRendererProps) {
   switch (data.type) {
     case 'project':
-      return <ProjectCard data={data} />;
+      // Use projects array if provided, otherwise use single data
+      return <ProjectsCarousel projects={projects && projects.length > 0 ? projects : [data]} />;
     case 'skill':
       return <SkillCard data={data} />;
     case 'contact':

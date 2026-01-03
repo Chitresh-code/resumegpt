@@ -21,6 +21,74 @@
         { "label": "Live Demo", "url": "https://yourportfolio.com" }
       ],
       "category": "Web Development"
+    },
+    {
+      "title": "E-Commerce Platform",
+      "description": "A full-stack e-commerce solution with real-time inventory management and payment integration.",
+      "year": 2023,
+      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/ecommerce"
+        },
+        { "label": "Live Demo", "url": "https://ecommerce-demo.com" }
+      ],
+      "category": "Web Development"
+    },
+    {
+      "title": "Machine Learning Dashboard",
+      "description": "An interactive dashboard for visualizing and analyzing ML model performance metrics.",
+      "year": 2023,
+      "technologies": ["Python", "FastAPI", "React", "TensorFlow", "D3.js"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/ml-dashboard"
+        }
+      ],
+      "category": "Data Science"
+    },
+    {
+      "title": "Mobile Task Manager",
+      "description": "A cross-platform mobile app for task management with offline sync and team collaboration.",
+      "year": 2022,
+      "technologies": ["React Native", "Firebase", "Redux", "TypeScript"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/task-manager"
+        },
+        { "label": "App Store", "url": "https://apps.apple.com/app/task-manager" }
+      ],
+      "category": "Mobile Development"
+    },
+    {
+      "title": "Blockchain Voting System",
+      "description": "A secure and transparent voting system built on blockchain technology with smart contracts.",
+      "year": 2022,
+      "technologies": ["Solidity", "Web3.js", "React", "Ethereum", "IPFS"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/blockchain-voting"
+        }
+      ],
+      "category": "Blockchain"
+    },
+    {
+      "title": "Real-time Chat Application",
+      "description": "A scalable real-time messaging application with end-to-end encryption and file sharing.",
+      "year": 2021,
+      "technologies": ["Socket.io", "Node.js", "MongoDB", "React", "JWT"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/chat-app"
+        },
+        { "label": "Live Demo", "url": "https://chat-demo.com" }
+      ],
+      "category": "Web Development"
     }
   ],
   "skills": [
