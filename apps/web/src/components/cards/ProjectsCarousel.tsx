@@ -20,7 +20,7 @@ interface ProjectsCarouselProps {
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
+const SPRING_OPTIONS = { type: 'spring' as const, stiffness: 300, damping: 30 };
 const BASE_WIDTH = 320;
 const CONTAINER_PADDING = 16;
 const ITEM_WIDTH = BASE_WIDTH - CONTAINER_PADDING * 2;
@@ -56,7 +56,7 @@ function CarouselItem({
         height: '260px',
         rotateY: rotateY,
       }}
-      transition={transition}
+      transition={transition as any}
       onClick={() => onItemClick(item)}
     >
       <div className="p-5 w-full">
@@ -93,7 +93,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [position, setPosition] = useState(0);
   const x = useMotionValue(0);
-  const [isJumping, setIsJumping] = useState(false);
+  const [isJumping] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleItemClick = (project: ProjectCardData) => {
@@ -154,8 +154,8 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
               x
             }}
             onDragEnd={handleDragEnd}
-            animate={{ x: -(position * TRACK_ITEM_OFFSET) }}
-            transition={effectiveTransition}
+          animate={{ x: -(position * TRACK_ITEM_OFFSET) }}
+          transition={effectiveTransition as any}
             onAnimationStart={handleAnimationStart}
             onAnimationComplete={handleAnimationComplete}
           >

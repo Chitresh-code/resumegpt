@@ -1,4 +1,4 @@
-import type { StructuredOutput, ChatMessage } from '@/types/structured-outputs';
+import type { StructuredOutput } from '@/types/structured-outputs';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 

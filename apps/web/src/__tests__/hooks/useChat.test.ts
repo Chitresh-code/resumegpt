@@ -3,7 +3,7 @@ import { renderHook, waitFor } from '@testing-library/react';
 import { useChat } from '@/hooks/useChat';
 
 // Mock fetch
-global.fetch = vi.fn();
+globalThis.fetch = vi.fn() as any;
 
 describe('useChat', () => {
   beforeEach(() => {
@@ -32,7 +32,7 @@ describe('useChat', () => {
       },
     };
 
-    (global.fetch as any).mockResolvedValueOnce(mockResponse);
+    (globalThis.fetch as any).mockResolvedValueOnce(mockResponse);
 
     const { result } = renderHook(() => useChat());
 
@@ -44,7 +44,7 @@ describe('useChat', () => {
   });
 
   it('handles errors gracefully', async () => {
-    (global.fetch as any).mockRejectedValueOnce(new Error('Network error'));
+    (globalThis.fetch as any).mockRejectedValueOnce(new Error('Network error'));
 
     const { result } = renderHook(() => useChat());
 

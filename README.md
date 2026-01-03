@@ -1,6 +1,17 @@
-# AI Portfolio Website
+# ResumeGPT
 
-An AI-powered portfolio website built with React, TypeScript, LangChain, and OpenAI. Features a beautiful home page with cursor animation, interactive chat interface, and dynamic component rendering based on structured AI outputs.
+**ResumeGPT** is an AI-powered interactive portfolio and resume platform that transforms the traditional resume into an engaging, conversational experience. Built with cutting-edge AI technology, ResumeGPT allows visitors to have natural conversations about your work, skills, and experience, making your portfolio come alive through intelligent dialogue.
+
+Instead of static pages and PDFs, ResumeGPT creates an interactive experience where potential employers, clients, or collaborators can chat with an AI assistant that represents you. The AI understands your background, projects, and expertise, providing personalized responses and dynamically rendering beautiful cards and components based on the conversation.
+
+## What Makes ResumeGPT Special?
+
+- 🤖 **AI-Powered Conversations** - Natural language interactions powered by OpenAI GPT models
+- 🎨 **Beautiful Interactive UI** - Fluid cursor animations, colorful glass-effect cards, and modern design
+- 📊 **Dynamic Content Rendering** - Projects displayed in interactive carousels with detailed drawers
+- 💬 **Streaming Responses** - Real-time message streaming for a smooth chat experience
+- 🎯 **Structured Data** - Intelligent card rendering for projects, skills, contact info, and more
+- 🚀 **Production Ready** - Docker support, comprehensive testing, and CI/CD pipelines
 
 ## Features
 
