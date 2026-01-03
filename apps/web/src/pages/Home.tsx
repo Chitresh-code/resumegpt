@@ -1,12 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserCircle, Briefcase, BookOpen, Sparkles, Contact, FileText } from 'lucide-react';
 import SplashCursor from '@/components/cursor/SplashCursor';
 import GlassIcons from '@/components/GlassIcons';
+import type { PersonalInfo } from '@/types/portfolio';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
 export default function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPersonalInfo = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/personal`);
+        if (response.ok) {
+          const data = await response.json();
+          setPersonalInfo(data.personalInfo);
+        }
+      } catch (error) {
+        console.error('Error fetching personal info:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPersonalInfo();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,16 +78,69 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-12">
-          <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
-            <UserCircle className="w-12 h-12 text-gray-800" />
-          </div>
-          <h1 className="text-4xl font-bold mb-2 text-gray-900">Your Name</h1>
-          <p className="text-lg text-gray-800 mb-4">
-            Building the future, one line of code at a time
-          </p>
-          <p className="text-center max-w-2xl text-gray-800">
-            I'm a passionate developer and AI enthusiast. I love building innovative solutions and exploring the latest technologies.
-          </p>
+          {loading ? (
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center animate-pulse">
+                <UserCircle className="w-12 h-12 text-gray-400" />
+              </div>
+              <div className="h-8 w-48 bg-gray-200 rounded mb-2 animate-pulse"></div>
+              <div className="h-6 w-64 bg-gray-200 rounded mb-4 animate-pulse"></div>
+              <div className="h-4 w-96 bg-gray-200 rounded animate-pulse"></div>
+            </div>
+          ) : personalInfo ? (
+            <>
+              {personalInfo.image ? (
+                <img
+                  src={personalInfo.image}
+                  alt={personalInfo.name}
+                  className="w-24 h-24 rounded-full mb-4 object-cover border-2 border-gray-200"
+                  onError={(e) => {
+                    // Fallback to icon if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const iconDiv = document.createElement('div');
+                      iconDiv.className = 'w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center';
+                      iconDiv.innerHTML = '<svg class="w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>';
+                      parent.insertBefore(iconDiv, target);
+                    }
+                  }}
+                />
+              ) : (
+                <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+                  <UserCircle className="w-12 h-12 text-gray-800" />
+                </div>
+              )}
+              <h1 className="text-4xl font-bold mb-2 text-gray-900">{personalInfo.name}</h1>
+              {personalInfo.tagline && (
+                <p className="text-lg text-gray-800 mb-4">
+                  {personalInfo.tagline}
+                </p>
+              )}
+              <p className="text-center max-w-2xl text-gray-800">
+                {personalInfo.bio}
+              </p>
+              {personalInfo.location && (
+                <p className="text-sm text-gray-600 mt-2">
+                  {personalInfo.location}
+                </p>
+              )}
+            </>
+          ) : (
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+                <UserCircle className="w-12 h-12 text-gray-800" />
+              </div>
+              <h1 className="text-4xl font-bold mb-2 text-gray-900">Your Name</h1>
+              <p className="text-lg text-gray-800 mb-4">
+                Building the future, one line of code at a time
+              </p>
+              <p className="text-center max-w-2xl text-gray-800">
+                I'm a passionate developer and AI enthusiast. I love building innovative solutions and exploring the latest technologies.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Preview Cards */}

@@ -4,6 +4,7 @@ import cors from "cors";
 import healthRoutes from "./routes/health.routes";
 import chatRoutes from "./routes/chat.routes";
 import cardsRoutes from "./routes/cards.routes";
+import personalRoutes from "./routes/personal.routes";
 import { errorHandler } from "./middlewares/error.middleware";
 
 // Load environment variables first
@@ -58,6 +59,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use("/health", healthRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/cards", cardsRoutes);
+app.use("/api/personal", personalRoutes);
 
 // global error handler
 app.use(errorHandler);
