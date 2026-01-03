@@ -1,5 +1,9 @@
 # ResumeGPT
 
+<div align="center">
+  <img src="docs/images/header.png" alt="ResumeGPT Homepage" width="100%">
+</div>
+
 **ResumeGPT** is an AI-powered interactive portfolio and resume platform that transforms the traditional resume into an engaging, conversational experience. Built with cutting-edge AI technology, ResumeGPT allows visitors to have natural conversations about your work, skills, and experience, making your portfolio come alive through intelligent dialogue.
 
 Instead of static pages and PDFs, ResumeGPT creates an interactive experience where potential employers, clients, or collaborators can chat with an AI assistant that represents you. The AI understands your background, projects, and expertise, providing personalized responses and dynamically rendering beautiful cards and components based on the conversation.

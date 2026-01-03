@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "name": "Chitresh Gyanani",
-    "bio": "Software Engineer and GenAI specialist designing production-grade AI platforms, backend systems, and full-stack SaaS products. I specialize in LLM engineering, RAG, knowledge-graph-powered chatbots, and scalable architectures using Python, FastAPI, and Django.",
+    "bio": "Software Engineer and GenAI specialist with strong experience designing and delivering production-grade AI platforms, backend systems, and full-stack SaaS products. I specialize in LLM engineering, Retrieval-Augmented Generation (RAG), knowledge-graph-powered chatbots, and scalable backend architectures using Python, FastAPI, and Django. I have worked across startups and enterprise environments, building systems that handle real user traffic, cost tracking, security, and deployment at scale. My work spans AI automation, developer tooling, analytics platforms, and enterprise AI orchestration, with a strong focus on clean architecture, reliability, and measurable business impact.",
     "image": "https://avatars.githubusercontent.com/u/129378666?s=400&u=77199613fcc6a6df28cbe0a215e6f6556ed1c1a7&v=4",
     "location": "New Delhi, India",
     "tagline": "Designing and shipping production-grade AI and data systems at scale"
@@ -83,6 +83,36 @@
         }
       ],
       "category": "Enterprise GenAI"
+    },
+    {
+      "title": "QuickBiteNow – SaaS Food Ordering Platform",
+      "description": "A full-stack SaaS platform with cart management, delivery integrations, and Stripe-based payments.",
+      "year": 2024,
+      "technologies": ["Django REST", "Next.js", "PostgreSQL", "Stripe"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Chitresh-code" }
+      ],
+      "category": "Full Stack"
+    },
+    {
+      "title": "OrgLens Knowledge Graph Chatbot",
+      "description": "Enterprise chatbot integrating Neo4j Knowledge Graphs with retrieval and prompt engineering for business question answering.",
+      "year": 2024,
+      "technologies": ["Python", "Neo4j", "LangChain", "FastAPI"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Chitresh-code" }
+      ],
+      "category": "AI & Data"
+    },
+    {
+      "title": "Personalized Learning Platform",
+      "description": "AI-powered learning platform generating personalized quizzes, summaries, and learning plans using LLMs.",
+      "year": 2023,
+      "technologies": ["Python", "Django", "OpenAI API", "Vector Databases"],
+      "links": [
+        { "label": "GitHub", "url": "https://github.com/Chitresh-code" }
+      ],
+      "category": "EdTech"
     }
   ],
   "workExperience": [
