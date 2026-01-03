@@ -47,14 +47,14 @@ const GlassIcons = ({ items, className }: GlassIconsProps) => {
   };
 
   return (
-    <div className={`flex justify-center items-center gap-8 py-8 overflow-visible ${className || ''}`}>
+    <div className={`flex justify-center items-start flex-wrap gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8 overflow-visible ${className || ''}`}>
       {items.map((item, index) => (
         <button
           key={index}
           type="button"
           aria-label={item.label}
           onClick={() => handleClick(item)}
-          className={`relative bg-transparent outline-none border-none cursor-pointer w-[4.5em] h-[4.5em] [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group ${
+          className={`relative bg-transparent outline-none border-none cursor-pointer w-[3.5em] h-[3.5em] sm:w-[4em] sm:h-[4em] md:w-[4.5em] md:h-[4.5em] [perspective:24em] [transform-style:preserve-3d] [-webkit-tap-highlight-color:transparent] group mb-8 sm:mb-10 md:mb-12 ${
             item.customClass || ''
           }`}
         >
@@ -77,7 +77,7 @@ const GlassIcons = ({ items, className }: GlassIconsProps) => {
             </span>
           </span>
 
-          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-base opacity-100 transition-all duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-2 group-hover:scale-110 group-hover:font-semibold text-gray-900">
+          <span className="absolute top-full left-0 right-0 text-center whitespace-nowrap leading-[2] text-xs sm:text-sm md:text-base opacity-100 transition-all duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] translate-y-1 sm:translate-y-2 group-hover:scale-110 group-hover:font-semibold text-gray-900">
             {item.label}
           </span>
         </button>
