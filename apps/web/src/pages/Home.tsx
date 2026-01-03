@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserCircle, Briefcase, BookOpen, Sparkles, Contact, FileText } from 'lucide-react';
 import SplashCursor from '@/components/cursor/SplashCursor';
-import PreviewCard from '@/components/cards/PreviewCard';
+import GlassIcons from '@/components/GlassIcons';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,43 +16,60 @@ export default function Home() {
   };
 
   const previewCards = [
-    { label: 'Me', icon: '😊', query: 'Who are you? I want to know more about you.' },
-    { label: 'Projects', icon: '💼', query: 'Tell me about your projects' },
-    { label: 'Skills', icon: '📚', query: 'What are your skills? Give me a list of your soft and hard skills.' },
-    { label: 'Fun', icon: '🎉', query: 'Tell me something fun about yourself' },
-    { label: 'Contact', icon: '👤', query: 'How can I contact you?' },
-    { label: 'Resume', icon: '📄', query: 'Show me your resume' },
+    { 
+      label: 'Me', 
+      icon: <UserCircle className="w-full h-full" />, 
+      query: 'Who are you? I want to know more about you.' 
+    },
+    { 
+      label: 'Projects', 
+      icon: <Briefcase className="w-full h-full" />, 
+      query: 'Tell me about your projects' 
+    },
+    { 
+      label: 'Skills', 
+      icon: <BookOpen className="w-full h-full" />, 
+      query: 'What are your skills? Give me a list of your soft and hard skills.' 
+    },
+    { 
+      label: 'Fun', 
+      icon: <Sparkles className="w-full h-full" />, 
+      query: 'Tell me something fun about yourself' 
+    },
+    { 
+      label: 'Contact', 
+      icon: <Contact className="w-full h-full" />, 
+      query: 'How can I contact you?' 
+    },
+    { 
+      label: 'Resume', 
+      icon: <FileText className="w-full h-full" />, 
+      query: 'Show me your resume' 
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
+    <div className="min-h-screen bg-white relative">
       <SplashCursor />
       
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-12">
-          <div className="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 mb-4 flex items-center justify-center">
-            <span className="text-4xl">👤</span>
+          <div className="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center">
+            <UserCircle className="w-12 h-12 text-gray-800" />
           </div>
-          <h1 className="text-4xl font-bold mb-2">Your Name</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          <h1 className="text-4xl font-bold mb-2 text-gray-900">Your Name</h1>
+          <p className="text-lg text-gray-800 mb-4">
             Building the future, one line of code at a time
           </p>
-          <p className="text-center max-w-2xl text-gray-700 dark:text-gray-300">
+          <p className="text-center max-w-2xl text-gray-800">
             I'm a passionate developer and AI enthusiast. I love building innovative solutions and exploring the latest technologies.
           </p>
         </div>
 
         {/* Preview Cards */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {previewCards.map((card) => (
-            <PreviewCard
-              key={card.label}
-              label={card.label}
-              icon={card.icon}
-              query={card.query}
-            />
-          ))}
+        <div className="mb-12">
+          <GlassIcons items={previewCards} />
         </div>
 
         {/* Chat Input */}
@@ -62,13 +80,13 @@ export default function Home() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Ask me anything..."
-              className="flex-1 px-4 py-3 rounded-full border border-gray-300 dark:border-gray-700 
-                         bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 
-                         focus:ring-purple-500 dark:focus:ring-purple-400"
+              className="flex-1 px-4 py-3 rounded-full border border-gray-300 
+                         bg-white focus:outline-none focus:ring-2 
+                         focus:ring-purple-500"
             />
             <button
               type="submit"
-              className="w-12 h-12 rounded-full bg-purple-600 hover:bg-purple-700 
+              className="w-12 h-12 rounded-full bg-gray-500 hover:bg-gray-600 
                        text-white flex items-center justify-center transition-colors"
             >
               <svg
@@ -81,7 +99,7 @@ export default function Home() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  d="M9 5l7 7-7 7"
                 />
               </svg>
             </button>

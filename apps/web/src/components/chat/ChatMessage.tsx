@@ -1,4 +1,4 @@
-import { ChatMessage as ChatMessageType } from '@/types/structured-outputs';
+import type { ChatMessage as ChatMessageType } from '@/types/structured-outputs';
 import CardRenderer from '@/components/cards/CardRenderer';
 import StreamingMessage from './StreamingMessage';
 
@@ -11,8 +11,8 @@ export default function ChatMessage({ message }: ChatMessageProps) {
     <div className="mb-6">
       {message.role === 'user' ? (
         <div className="flex justify-end">
-          <div className="max-w-[80%] rounded-lg bg-gray-200 dark:bg-gray-700 px-4 py-3">
-            <p className="text-sm">{message.content}</p>
+          <div className="max-w-[80%] rounded-lg bg-gray-200 px-4 py-3">
+            <p className="text-sm text-gray-900">{message.content}</p>
           </div>
         </div>
       ) : (

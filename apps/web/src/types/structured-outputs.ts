@@ -64,4 +64,3 @@ export interface ChatResponse {
   message: string;
   structuredData?: StructuredOutput;
 }
-

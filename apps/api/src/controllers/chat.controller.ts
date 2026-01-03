@@ -24,6 +24,12 @@ export async function chatController(req: Request, res: Response) {
     res.setHeader('Cache-Control', 'no-cache, no-transform');
     res.setHeader('Connection', 'keep-alive');
     res.setHeader('X-Accel-Buffering', 'no'); // Disable buffering in nginx
+    // CORS headers for SSE
+    const origin = req.headers.origin;
+    if (origin) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+    }
 
     const sendSSE = (type: string, data: any) => {
       res.write(`data: ${JSON.stringify({ type, data })}\n\n`);

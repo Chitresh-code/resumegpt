@@ -1,4 +1,4 @@
-import { StructuredOutput } from '@/types/structured-outputs';
+import type { StructuredOutput } from '@/types/structured-outputs';
 import ProjectCard from './ProjectCard';
 import SkillCard from './SkillCard';
 import ContactCard from './ContactCard';

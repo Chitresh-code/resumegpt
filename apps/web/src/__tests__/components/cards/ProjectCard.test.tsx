@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import ProjectCard from '@/components/cards/ProjectCard';
-import { ProjectCardData } from '@/types/structured-outputs';
+import type { ProjectCardData } from '@/types/structured-outputs';
 
 const mockProjectData: ProjectCardData = {
   type: 'project',

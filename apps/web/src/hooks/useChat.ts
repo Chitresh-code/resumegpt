@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
-import { ChatMessage, StructuredOutput } from '@/types/structured-outputs';
+import type { ChatMessage, StructuredOutput } from '@/types/structured-outputs';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 

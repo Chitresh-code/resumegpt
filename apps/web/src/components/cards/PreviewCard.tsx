@@ -3,12 +3,12 @@ import { cn } from '@/lib/utils';
 
 interface PreviewCardProps {
   label: string;
-  icon: React.ReactNode;
+  icon: React.ComponentType<{ className?: string }>;
   query?: string;
   className?: string;
 }
 
-export default function PreviewCard({ label, icon, query, className }: PreviewCardProps) {
+export default function PreviewCard({ label, icon: Icon, query, className }: PreviewCardProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -24,14 +24,14 @@ export default function PreviewCard({ label, icon, query, className }: PreviewCa
       onClick={handleClick}
       className={cn(
         'flex flex-col items-center justify-center gap-2 px-4 py-3 rounded-full',
-        'bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700',
+        'bg-gray-100 hover:bg-gray-200',
         'transition-colors duration-200',
         'text-sm font-medium',
         className
       )}
     >
-      <span className="text-xl">{icon}</span>
-      <span>{label}</span>
+      {Icon && <Icon className="w-5 h-5 text-gray-800" />}
+      <span className="text-gray-900">{label}</span>
     </button>
   );
 }
