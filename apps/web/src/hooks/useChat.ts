@@ -111,6 +111,8 @@ export function useChat() {
                 });
               } else if (parsed.type === 'message' && parsed.data) {
                 messageContent += parsed.data;
+                // Add a small delay to slow down streaming for better readability
+                await new Promise(resolve => setTimeout(resolve, 30));
                 setMessages((prev) => {
                   const updated = [...prev];
                   const lastMessage = updated[updated.length - 1];
