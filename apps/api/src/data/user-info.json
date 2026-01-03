@@ -1,0 +1,82 @@
+{
+  "personalInfo": {
+    "name": "Your Name",
+    "bio": "I'm a passionate developer and AI enthusiast. I love building innovative solutions and exploring the latest technologies.",
+    "image": "/profile.jpg",
+    "location": "San Francisco, CA, USA",
+    "age": 30,
+    "tagline": "Building the future, one line of code at a time"
+  },
+  "projects": [
+    {
+      "title": "AI Portfolio",
+      "description": "A modern portfolio website powered by AI, featuring interactive chat and dynamic content rendering.",
+      "year": 2024,
+      "technologies": ["React", "TypeScript", "LangChain", "OpenAI", "Express"],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/yourusername/ai-portfolio"
+        },
+        { "label": "Live Demo", "url": "https://yourportfolio.com" }
+      ],
+      "category": "Web Development"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Tech & Product",
+      "skills": ["Product vision", "Startup", "Mobile App", "AI & AGI"]
+    },
+    {
+      "category": "Leadership",
+      "skills": ["Fundraising", "Angel", "Talent spotting", "Public speaking"]
+    },
+    {
+      "category": "Fun",
+      "skills": ["Creative problem solving", "Team building", "Mentoring"]
+    }
+  ],
+  "workExperience": [
+    {
+      "company": "Tech Company",
+      "position": "Senior Software Engineer",
+      "startDate": "2020-01",
+      "endDate": "2024-12",
+      "description": "Led development of AI-powered applications and managed a team of developers.",
+      "technologies": ["React", "Node.js", "Python", "AI/ML"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Science",
+      "startDate": "2016",
+      "endDate": "2020"
+    }
+  ],
+  "contactInfo": {
+    "email": "your.email@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA, USA",
+    "socialLinks": [
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/yourprofile" },
+      { "platform": "GitHub", "url": "https://github.com/yourusername" },
+      { "platform": "Twitter", "url": "https://twitter.com/yourhandle" }
+    ]
+  },
+  "funFacts": [
+    "Love exploring new technologies",
+    "Passionate about AI and machine learning",
+    "Enjoy contributing to open source projects"
+  ],
+  "resume": {
+    "name": "Your Name",
+    "title": "Software Engineer",
+    "format": "PDF",
+    "updatedDate": "August 2024",
+    "size": "0.5 MB",
+    "url": "/resume.pdf"
+  }
+}

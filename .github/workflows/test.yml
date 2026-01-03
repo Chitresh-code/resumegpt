@@ -1,0 +1,95 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  test-api:
+    name: Test API
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./apps/api
+    
+    strategy:
+      matrix:
+        node-version: [18, 20]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: apps/api/package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key' }}
+          NODE_ENV: test
+      
+      - name: Generate coverage
+        run: npm run test:coverage
+        continue-on-error: true
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./apps/api/coverage/lcov.info
+          flags: api
+          name: api-coverage-${{ matrix.node-version }}
+          fail_ci_if_error: false
+
+  test-web:
+    name: Test Web
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./apps/web
+    
+    strategy:
+      matrix:
+        node-version: [18, 20]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: apps/web/package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm run test:run
+      
+      - name: Generate coverage
+        run: npm run test:coverage
+        continue-on-error: true
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./apps/web/coverage/lcov.info
+          flags: web
+          name: web-coverage-${{ matrix.node-version }}
+          fail_ci_if_error: false
+

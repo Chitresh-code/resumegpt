@@ -1,0 +1,155 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-test-api:
+    name: Lint and Test API
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./apps/api
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: apps/api/package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint || echo "No lint script found, skipping..."
+        continue-on-error: true
+      
+      - name: Run tests
+        run: npm test
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || 'test-key' }}
+          NODE_ENV: test
+      
+      - name: Generate coverage report
+        run: npm run test:coverage
+        continue-on-error: true
+      
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./apps/api/coverage/lcov.info
+          flags: api
+          name: api-coverage
+          fail_ci_if_error: false
+
+  lint-and-test-web:
+    name: Lint and Test Web
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./apps/web
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: apps/web/package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Run tests
+        run: npm run test:run
+      
+      - name: Generate coverage report
+        run: npm run test:coverage
+        continue-on-error: true
+      
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./apps/web/coverage/lcov.info
+          flags: web
+          name: web-coverage
+          fail_ci_if_error: false
+
+  build:
+    name: Build Applications
+    runs-on: ubuntu-latest
+    needs: [lint-and-test-api, lint-and-test-web]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Build API
+        working-directory: ./apps/api
+        run: |
+          npm ci
+          npm run build
+      
+      - name: Build Web
+        working-directory: ./apps/web
+        run: |
+          npm ci
+          npm run build
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            apps/api/dist
+            apps/web/dist
+          retention-days: 7
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Type check API
+        working-directory: ./apps/api
+        run: |
+          npm ci
+          npx tsc --noEmit
+      
+      - name: Type check Web
+        working-directory: ./apps/web
+        run: |
+          npm ci
+          npx tsc --noEmit
+
