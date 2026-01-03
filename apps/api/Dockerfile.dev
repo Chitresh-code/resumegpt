@@ -1,0 +1,17 @@
+# Development Dockerfile for Backend
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies (including dev dependencies for ts-node-dev)
+RUN npm install
+
+# Expose port
+EXPOSE 4000
+
+# Use ts-node-dev for hot reload (already in devDependencies)
+CMD ["npm", "run", "dev"]
+

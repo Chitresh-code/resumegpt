@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.dev
+    container_name: resume-api-dev
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - FRONTEND_URL=http://localhost:5173
+    volumes:
+      - ./apps/api/src:/app/src
+      - ./apps/api/package.json:/app/package.json
+      - ./apps/api/tsconfig.json:/app/tsconfig.json
+      - ./apps/api/src/data:/app/src/data
+      - /app/node_modules
+      - /app/dist
+    command: npm run dev
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    container_name: resume-web-dev
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:4000
+    volumes:
+      - ./apps/web/src:/app/src
+      - ./apps/web/public:/app/public
+      - ./apps/web/index.html:/app/index.html
+      - ./apps/web/vite.config.ts:/app/vite.config.ts
+      - ./apps/web/tsconfig.json:/app/tsconfig.json
+      - ./apps/web/tsconfig.app.json:/app/tsconfig.app.json
+      - ./apps/web/tsconfig.node.json:/app/tsconfig.node.json
+      - ./apps/web/package.json:/app/package.json
+      - ./apps/web/components.json:/app/components.json
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - api
+    restart: unless-stopped
+

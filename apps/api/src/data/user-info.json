@@ -1,150 +1,177 @@
 {
   "personalInfo": {
-    "name": "Your Name",
-    "bio": "I'm a passionate developer and AI enthusiast. I love building innovative solutions and exploring the latest technologies.",
+    "name": "Chitresh Gyanani",
+    "bio": "Software Engineer and GenAI specialist with strong experience designing and delivering production-grade AI platforms, backend systems, and full-stack SaaS products. I specialize in LLM engineering, Retrieval-Augmented Generation (RAG), knowledge-graph-powered chatbots, realtime AI systems, and scalable backend architectures using Python, FastAPI, and Django. My work spans enterprise AI governance platforms, developer tooling, analytics systems, and ML-driven automation, with a strong focus on clean architecture, data science rigor, reliability, and measurable business impact.",
     "image": "/profile.jpg",
-    "location": "San Francisco, CA, USA",
-    "age": 30,
-    "tagline": "Building the future, one line of code at a time"
+    "location": "New Delhi, India",
+    "tagline": "Designing and shipping production-grade AI and data systems at scale"
   },
   "projects": [
     {
-      "title": "AI Portfolio",
-      "description": "A modern portfolio website powered by AI, featuring interactive chat and dynamic content rendering.",
-      "year": 2024,
-      "technologies": ["React", "TypeScript", "LangChain", "OpenAI", "Express"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/ai-portfolio"
-        },
-        { "label": "Live Demo", "url": "https://yourportfolio.com" }
+      "title": "ExtracTable – Production-Grade PDF Table Extraction Platform",
+      "description": "ExtracTable is a SaaS-ready backend platform for automated table extraction from PDFs, designed for reliability, scale, and cost transparency. The system processes uploaded documents asynchronously using Celery and Redis, extracts structured tables using Google Gemini 2.5 Flash Lite, and delivers high-quality, styled Excel outputs. The platform includes comprehensive API validation, JWT-based authentication with strict user isolation, detailed token counting for every AI request, cost estimation, monthly usage tracking, success-rate analytics, and a scalable pricing-tier foundation. Extensive internal documentation covers API references, system architecture, database schema, deployment workflows, AI integration strategies, monitoring, and security best practices.",
+      "year": 2025,
+      "technologies": [
+        "Django 5.2",
+        "Django REST Framework",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "Google Gemini 2.5 Flash Lite",
+        "JWT Authentication",
+        "Docker",
+        "OpenAPI / Swagger"
       ],
-      "category": "Web Development"
-    },
-    {
-      "title": "E-Commerce Platform",
-      "description": "A full-stack e-commerce solution with real-time inventory management and payment integration.",
-      "year": 2023,
-      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Redis"],
       "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/ecommerce"
-        },
-        { "label": "Live Demo", "url": "https://ecommerce-demo.com" }
+        { "label": "Documentation", "url": "https://your-docs-link.com/extractable" }
       ],
-      "category": "Web Development"
+      "category": "SaaS / AI Automation"
     },
     {
-      "title": "Machine Learning Dashboard",
-      "description": "An interactive dashboard for visualizing and analyzing ML model performance metrics.",
-      "year": 2023,
-      "technologies": ["Python", "FastAPI", "React", "TensorFlow", "D3.js"],
+      "title": "KeyNest – Secure Environment Variable Management for Teams",
+      "description": "KeyNest is an open-source, security-first platform for managing environment variables across teams, projects, and environments. It provides AES-256 encryption at rest, role-based access control, JWT authentication, complete audit logging, and enterprise-grade CSRF/CORS protection. The system supports organizations, projects, and multiple environment types (development, staging, production), enabling fine-grained permission management and secure collaboration. Designed with developer experience in mind, it includes .env import/export, real-time updates, search and filtering, and Docker/Kubernetes-friendly deployment.",
+      "year": 2025,
+      "technologies": [
+        "Django",
+        "Django REST Framework",
+        "PostgreSQL",
+        "Redis",
+        "AES-256 Encryption",
+        "Docker",
+        "Next.js 14",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "TanStack Query",
+        "Zustand"
+      ],
       "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/ml-dashboard"
-        }
+        { "label": "GitHub", "url": "https://github.com/Chitresh-code/KeyNest.git" }
       ],
-      "category": "Data Science"
+      "category": "Developer Tools / Security"
     },
     {
-      "title": "Mobile Task Manager",
-      "description": "A cross-platform mobile app for task management with offline sync and team collaboration.",
-      "year": 2022,
-      "technologies": ["React Native", "Firebase", "Redux", "TypeScript"],
+      "title": "AI Hub Agent (UKG) – Enterprise AI Use Case Intelligence Platform",
+      "description": "An enterprise FastAPI-based platform that centralizes AI use cases across business units and enables semantic, analytical, and realtime interaction with organizational AI initiatives. The system syncs SharePoint data via Microsoft Graph into a MongoDB Atlas vector store, enabling RAG-based semantic search and high-performance tabular analytics using Polars. It supports multi-agent orchestration (Orchestrator, Read, Write agents) with Semantic Kernel, guided intake workflows, and leadership reporting aligned to PARC success metrics. The platform also includes realtime voice-to-voice and speech-to-text capabilities using Azure OpenAI Realtime APIs, supporting HTTP, WebSocket, and WebRTC flows for low-latency conversational analytics.",
+      "year": 2025,
+      "technologies": [
+        "FastAPI",
+        "Docker",
+        "Microsoft Graph / SharePoint",
+        "MongoDB Atlas Vector Search",
+        "OpenAI Embeddings",
+        "Polars",
+        "Semantic Kernel",
+        "Azure OpenAI Realtime",
+        "Speech-to-Speech",
+        "Speech-to-Text",
+        "WebRTC",
+        "WebSocket",
+        "React",
+        "Vite"
+      ],
       "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/task-manager"
-        },
-        { "label": "App Store", "url": "https://apps.apple.com/app/task-manager" }
+        { "label": "Repository", "url": "https://your-repo-link.com/aihub-agent" }
       ],
-      "category": "Mobile Development"
-    },
-    {
-      "title": "Blockchain Voting System",
-      "description": "A secure and transparent voting system built on blockchain technology with smart contracts.",
-      "year": 2022,
-      "technologies": ["Solidity", "Web3.js", "React", "Ethereum", "IPFS"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/blockchain-voting"
-        }
-      ],
-      "category": "Blockchain"
-    },
-    {
-      "title": "Real-time Chat Application",
-      "description": "A scalable real-time messaging application with end-to-end encryption and file sharing.",
-      "year": 2021,
-      "technologies": ["Socket.io", "Node.js", "MongoDB", "React", "JWT"],
-      "links": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/yourusername/chat-app"
-        },
-        { "label": "Live Demo", "url": "https://chat-demo.com" }
-      ],
-      "category": "Web Development"
-    }
-  ],
-  "skills": [
-    {
-      "category": "Tech & Product",
-      "skills": ["Product vision", "Startup", "Mobile App", "AI & AGI"]
-    },
-    {
-      "category": "Leadership",
-      "skills": ["Fundraising", "Angel", "Talent spotting", "Public speaking"]
-    },
-    {
-      "category": "Fun",
-      "skills": ["Creative problem solving", "Team building", "Mentoring"]
+      "category": "Enterprise GenAI"
     }
   ],
   "workExperience": [
     {
-      "company": "Tech Company",
-      "position": "Senior Software Engineer",
-      "startDate": "2020-01",
-      "endDate": "2024-12",
-      "description": "Led development of AI-powered applications and managed a team of developers.",
-      "technologies": ["React", "Node.js", "Python", "AI/ML"]
+      "company": "UKG",
+      "position": "Consultant",
+      "startDate": "2025-07",
+      "endDate": "Present",
+      "location": "Florida, USA",
+      "description": "Working on enterprise-scale GenAI initiatives focused on AI governance, use case intelligence, and realtime interaction systems. Responsibilities include designing backend services for AI agents, building RAG pipelines over SharePoint data, enabling high-performance analytics with Polars, and implementing realtime voice-to-voice and transcription services using Azure OpenAI Realtime (WebSocket and WebRTC). The role involves close collaboration with stakeholders to support leadership reporting, AI success measurement, and responsible AI adoption across business units.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Azure",
+        "GenAI",
+        "LLMs",
+        "Realtime Speech-to-Speech",
+        "Speech-to-Text",
+        "WebRTC"
+      ]
+    },
+    {
+      "company": "Quarks Technosoft",
+      "position": "Junior Software Engineer",
+      "startDate": "2025-06",
+      "endDate": "Present",
+      "location": "Noida, India",
+      "description": "Working in a data science and AI engineering capacity, contributing across the full lifecycle of AI systems. Responsibilities include data preprocessing, exploratory data analysis, feature engineering, model evaluation, and integration of ML/LLM outputs into backend services. Built RAG pipelines, AI agents, and analytics workflows, translated business problems into data-driven solutions, and deployed production-ready services using containerized architectures and cloud platforms.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Docker",
+        "Azure",
+        "RAG",
+        "Data Analysis",
+        "Feature Engineering",
+        "ML Pipelines"
+      ]
+    },
+    {
+      "company": "OrgLens",
+      "position": "Data Analyst / Software Developer",
+      "startDate": "2024-09",
+      "endDate": "2025-05",
+      "location": "Noida, India",
+      "description": "Worked on backend systems and advanced analytics for organizational insights. Designed and implemented algorithms and data pipelines for Organizational Network Analysis (ONA), enabling analysis of collaboration patterns, influence, and communication flow within enterprises. Built AI-powered chatbots combining knowledge graphs, LLMs, and structured analytics to support leadership decision-making.",
+      "technologies": [
+        "Python",
+        "Django",
+        "Neo4j",
+        "LangChain",
+        "PostgreSQL",
+        "Organizational Network Analysis",
+        "Graph Algorithms"
+      ]
+    },
+    {
+      "company": "SSB Digital",
+      "position": "Python Developer",
+      "startDate": "2024-09",
+      "endDate": "2025-04",
+      "location": "Remote",
+      "description": "Developed ML and GenAI-driven backend systems, including LLM-powered chatbots and automation pipelines. Worked extensively on feature engineering, dataset preparation, and fine-tuning of language models to improve response quality and task performance. Integrated OpenCV-based components, optimized inference workflows, and delivered robust APIs using Django and Flask for production environments.",
+      "technologies": [
+        "Python",
+        "LLMs",
+        "Feature Engineering",
+        "Fine-tuning",
+        "OpenCV",
+        "Django",
+        "Flask"
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University",
-      "degree": "Bachelor of Science",
-      "field": "Computer Science",
-      "startDate": "2016",
-      "endDate": "2020"
+      "institution": "Dr. A.P.J. Abdul Kalam Technical University",
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science and Engineering",
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "contactInfo": {
-    "email": "your.email@example.com",
-    "phone": "+1 (555) 123-4567",
-    "location": "San Francisco, CA, USA",
+    "email": "gychitresh1290@gmail.com",
+    "phone": "+91 8882085604",
+    "location": "New Delhi, India",
     "socialLinks": [
-      { "platform": "LinkedIn", "url": "https://linkedin.com/in/yourprofile" },
-      { "platform": "GitHub", "url": "https://github.com/yourusername" },
-      { "platform": "Twitter", "url": "https://twitter.com/yourhandle" }
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/chitresh-gyanani" },
+      { "platform": "GitHub", "url": "https://github.com/Chitresh-code" },
+      { "platform": "Website", "url": "https://chitresh.in" }
     ]
   },
-  "funFacts": [
-    "Love exploring new technologies",
-    "Passionate about AI and machine learning",
-    "Enjoy contributing to open source projects"
-  ],
   "resume": {
-    "name": "Your Name",
-    "title": "Software Engineer",
+    "name": "Chitresh Gyanani",
+    "title": "Software Engineer | GenAI | Data Science & Backend Systems",
     "format": "PDF",
-    "updatedDate": "August 2024",
-    "size": "0.5 MB",
+    "updatedDate": "2025",
     "url": "/resume.pdf"
   }
 }
