@@ -43,7 +43,7 @@ export const InfoCardSchema = z.object({
   type: z.literal('info'),
   title: z.string(),
   content: z.string(),
-  metadata: z.record(z.any()).optional(),
+  metadata: z.record(z.string(), z.any()).optional(),
 });
 
 export const StructuredOutputSchema = z.discriminatedUnion('type', [
